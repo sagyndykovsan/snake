@@ -5,25 +5,75 @@ let snakeSize = 50;
 let snakeSpeed = 160;
 let frameWall = frameSize - snakeSize;
 let frame = document.querySelector('.frame');
+let btns = document.querySelectorAll('.btn-item');
 let skip = false;
 let skipCount = 0;
 let forwardSkip = [];
 let randomNum = 0;
+let points = 0;
+btns.forEach(item => {
+	item.addEventListener('click', e => {
+		let targetBtn = e.currentTarget;
+		
+	if (snakeDirection[0] == oppositeMobile[targetBtn.dataset.dir]) return;
+
+
+		isKeySpam = true;
+
+		switch(targetBtn.dataset.dir) {
+			case 'left':
+				actions.push(['l', 0]);
+			break;
+			case 'up':
+				actions.push(['u', 0]);
+			break;
+			case 'right':
+				actions.push(['r', 0]);
+			break;
+			case 'down':
+				actions.push(['d', 0]);
+			break;
+}
+
+	});
+});
 
 // setting initial positions of snake
 
 let initial = 300;
 
-for (let i = 0; i < 3; i++) {
-	document.querySelectorAll('.snakeParts')[i].style.top = initial + 'px';
-	document.querySelectorAll('.snakeParts')[i].style.left = '50px';
-	initial += snakeSize;
+function reset() {
+	frame.innerHTML = "";
+	let start = document.createElement('div');
+	start.innerHTML = 'START';
+	start.classList.add('start')
+	start.addEventListener('click', startGame);
+	frame.appendChild(start);
 }
 
-let apple = document.querySelector('.apple');
+reset();
 
-apple.style.top = '100px';
-apple.style.left = '200px';
+function startGame() {
+	frame.innerHTML = `<div class="snakeParts head"></div>
+		<div class="snakeParts"></div>
+		<div class="snakeParts"></div>
+		<div class="apple"></div>`;
+
+	initial = 300;
+	for (let i = 0; i < 3; i++) {
+		document.querySelectorAll('.snakeParts')[i].style.top = initial + 'px';
+		document.querySelectorAll('.snakeParts')[i].style.left = '50px';
+		initial += snakeSize;
+	}
+
+	apple = document.querySelector('.apple');
+	apple.style.top = '100px';
+	apple.style.left = '200px';
+	snakeDirection = ['u', 'u', 'u'];
+	actions = [];
+	isGameOver = false;
+	move = setInterval(moveByTick, snakeSpeed);
+}
 
 
 let snakeDirection = ['u', 'u', 'u'];
@@ -100,7 +150,7 @@ function moveByTick() {
 	});
 }
 
-let move = setInterval(moveByTick, snakeSpeed);
+let move = undefined;
 
 function crashCheck(posX, posY, snake) {
 
@@ -108,7 +158,8 @@ function crashCheck(posX, posY, snake) {
 	let y = posY;
 	for (let i = 4; i < snake.length; i++) {
 		if (parseInt(snake[i].style.left) == posX && parseInt(snake[i].style.top) == posY) {
-		alert('game over');
+		reset();
+		alert(`GAME OVER\nPOINTS: ${points}`);
 		clearInterval(move);
 		isGameOver = true;
 		return true;
@@ -130,7 +181,8 @@ function crashCheck(posX, posY, snake) {
 		break;
 	}
 	if (posX > frameWall || posX < 0 || posY > frameWall || posY < 0) {
-		alert('game over');
+		reset();
+		alert(`GAME OVER\nPOINTS: ${points}`);
 		clearInterval(move);
 		isGameOver = true;
 		return true;
@@ -145,6 +197,13 @@ let opposite = {
 	38: 'd',
 	39: 'l',
 	40: 'u'
+};
+
+let oppositeMobile = {
+	left: 'r',
+	up: 'd',
+	right: 'l',
+	down: 'u'
 };
 
 let isKeySpam = false;
@@ -204,7 +263,7 @@ function snakeGrow(snake) {
 	div.style.top = posY + 'px';
 	div.style.left = posX + 'px';
 	frame.appendChild(div);
-
+	points +=20;
 }
 // apple spawner
 

@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-sclae=1">
 	<title>snake</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+	<div class="block">
 	<div class="frame">
 		<div class="snakeParts head"></div>
 		<div class="snakeParts"></div>
 		<div class="snakeParts"></div>
 		<div class="apple"></div>
+	</div>
+	<div class="btns">
+		<div class="btn-left btn-hor btn-item" data-dir="left"></div>
+		<div class="btn-ver">
+			<div class="btn-up btn-item" data-dir="up"></div>
+			<div class="btn-down btn-item" data-dir="down"></div>
+		</div>
+		<div class="btn-right btn-hor btn-item" data-dir="right"></div>
+	</div>
 	</div>
 	<script src="app.js"></script>
 </body>

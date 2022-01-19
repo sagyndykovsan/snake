@@ -42,3 +42,50 @@ body {
 	top: 0;
 	left: 0;
 }
+
+.btns {
+	display: none;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+.btn-hor {
+	background: url('img/hor-arrow.png') no-repeat center / cover;
+	height: 137px;
+	width: 81px;
+}
+
+.btn-ver {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.btn-ver div {
+	background: url('img/ver-arrow.png') no-repeat center / cover;
+	height: 66px;
+	width: 125px;
+}
+
+.btn-right {
+	transform: rotate(180deg);
+}
+
+.start {
+	font-size: 64px;
+	color: #fff;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(0,0,0,0.8);
+	user-select: none;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1120px){
+	.btns {
+		display: flex;
+	}
+}
