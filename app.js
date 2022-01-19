@@ -12,7 +12,7 @@ let randomNum = 0;
 
 // setting initial positions of snake
 
-let initial = 200;
+let initial = 300;
 
 for (let i = 0; i < 3; i++) {
 	document.querySelectorAll('.snakeParts')[i].style.top = initial + 'px';
