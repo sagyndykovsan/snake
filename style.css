@@ -67,11 +67,8 @@ body {
 	width: 125px;
 }
 
-.btn-down div {
-       transform: rotate(180deg);
-}
-
-.btn-right {
+.btn-right,
+.btn-down {
 	transform: rotate(180deg);
 }
 
