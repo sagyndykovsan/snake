@@ -2,7 +2,7 @@
 
 let frameSize = 500;
 let snakeSize = 50;
-let snakeSpeed = 80;
+let snakeSpeed = 30;
 let frameWall = frameSize - snakeSize;
 let frame = document.querySelector('.frame');
 let btns = document.querySelectorAll('.btn-item');
