@@ -301,4 +301,8 @@ function appleSpawn(snake) {
 }
 
 // Please God make AI die I'm forgetting how to code don't judge me
-document.addEventListener("keydown", startGame)
+document.addEventListener("keydown", (e) => {
+	if (e.code === "Space") {
+		startGame();
+	}
+})
