@@ -24,16 +24,16 @@ btns.forEach(item => {
 		isKeySpam = true;
 
 		switch(targetBtn.dataset.dir) {
-			case 'left':
+			case 'KeyA':
 				actions.push(['l', 0]);
 			break;
-			case 'up':
+			case 'KeyW':
 				actions.push(['u', 0]);
 			break;
-			case 'right':
+			case 'KeyD':
 				actions.push(['r', 0]);
 			break;
-			case 'down':
+			case 'KeyS':
 				actions.push(['d', 0]);
 			break;
 }
