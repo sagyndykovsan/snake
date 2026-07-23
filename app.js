@@ -11,6 +11,9 @@ let skipCount = 0;
 let forwardSkip = [];
 let randomNum = 0;
 let points = 0;
+
+
+
 btns.forEach(item => {
 	item.addEventListener('click', e => {
 		let targetBtn = e.currentTarget;
@@ -296,3 +299,6 @@ function appleSpawn(snake) {
 	apple.style.left = posX + 'px';
 	apple.style.top = posY + 'px';
 }
+
+// Please God make AI die I'm forgetting how to code don't judge me
+document.addEventListener("keydown", startGame)
